@@ -1,0 +1,6 @@
+discord.py[voice]
+asyncio
+cogs
+python-dotenv
+requests
+pillow
