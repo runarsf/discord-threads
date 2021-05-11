@@ -1,11 +1,12 @@
 import discord
 import asyncio
 
+# https://github.com/fengsp/color-thief-py/blob/master/examples/demo.py
+
 import urllib.request
 import requests
 from io import BytesIO
 from PIL import Image
-from PIL import GifImagePlugin
 
 from discord.ext import commands
 
@@ -16,9 +17,6 @@ def getDominantColor(filename: str):
         width, height = 150, 150
         response = requests.get(filename)
         image = Image.open(BytesIO(response.content))
-
-        if image.is_animated:
-            image.seek(0)
 
         #image.seek(image.tell() + 1)
         image = image.resize((width, height), resample=0)
@@ -64,7 +62,7 @@ class Utils(commands.Cog):
                 thread_channel = await message.guild.create_text_channel(name=f'{referenced.author.name}-{referenced.id}',
                                                                          category=thread_category,
                                                                          topic=referenced.content)
-                embed = discord.Embed(description=f'[original message]({referenced.jump_url})\n{referenced.content}',
+                embed = discord.Embed(description=f'> [original message]({referenced.jump_url})\n{referenced.content}',
                                       colour=getDominantColor(referenced.author.avatar_url))
                 embed.set_author(name=referenced.author.name,
                                  icon_url=referenced.author.avatar_url,

@@ -4,3 +4,4 @@ cogs
 python-dotenv
 requests
 pillow
+colorthief
