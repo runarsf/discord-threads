@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  discord-threads:
+    image: "discord-threads"
+    hostname: "discord-threads"
+    container_name: "discord-threads"
+    build: "."
+    volumes:
+      - "./:/app"
+    restart: "unless-stopped"

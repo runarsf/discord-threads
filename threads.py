@@ -19,7 +19,10 @@ bot = commands.Bot(command_prefix=get_prefix,
                    case_insensitive=True)
 bot.remove_command('help')
 
-cogs = ['cogs.utils']
+cogs = ['cogs.spool',
+        'cogs.helpers',
+        'cogs.commands',
+        'cogs.owner']
 
 for cog in cogs:
     bot.load_extension(cog)
