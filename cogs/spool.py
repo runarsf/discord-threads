@@ -111,11 +111,15 @@ class Spool(commands.Cog):
                                           reason='Moving thread-channel to threads category')
                 embed = discord.Embed(description=f'> [original message]({referenced.jump_url})\n{referenced.content}',
                                       colour=getDominantColor(referenced.author.avatar_url))
-                embed.set_author(name=referenced.author.name,
+                embed.set_author(name=referenced.author.display_name,
                                  icon_url=referenced.author.avatar_url,
                                  url=referenced.jump_url)
                 if referenced.attachments:
                     embed.set_image(url=referenced.attachments[0].url)
+                if referenced.embeds:
+                    for _embed in referenced.embeds:
+                        for field in _embed.fields:
+                            embed.add_field(name=field.name, value=field.value, inline=False)
                 original_message = await thread_channel.send(embed=embed)
                 await original_message.pin() # Delete this message
                 await original_message.channel.purge(limit=1)
