@@ -4,6 +4,8 @@
 
 A [Discord](https://discord.com) bot with the goal of mimicking [Slack](https://slack.com)-like threads using the built-in reply function.
 
+![Example thread](./example.png)
+
 
 ## Setup
 
