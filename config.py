@@ -8,7 +8,7 @@ load_dotenv()
 
 token: str = os.environ.get('BOT_TOKEN', None)
 
-prefixes: List[str] = [ 'thread ', 'tråd ', 'threads ', 'tr ' ]
+prefixes: List[str] = [ 'thread ', 'threads ', 'tr ' ]
 
 logging.basicConfig(stream=sys.stdout,
                     level=logging.INFO,

@@ -1,11 +1,9 @@
-# discord-threads
+# Discord threads
 
-A discord bot that attempts to mimic Slack-like threads using Discord's built-in reply-function.
+> [Add the bot to your server](https://discord.com/api/oauth2/authorize?client_id=841727105816461312&permissions=8&scope=bot%20applications.commands)
 
-When replying to a message, a new category named `threads` is created, in that category a channel named `<UserName>-<ReferencedMessageID>` is created. The referenced message and reply are embedded with a link to the original message.
-All future replies to that message will be sent in the same channel.
+A [Discord](https://discord.com) bot with the goal of mimicking [Slack](https://slack.com)-like threads using the built-in reply function.
 
-A public instance is _currently_ not available.
 
 ## Setup
 

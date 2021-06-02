@@ -5,3 +5,4 @@ python-dotenv
 requests
 pillow
 colorthief
+discord-py-slash-command

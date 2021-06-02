@@ -6,6 +6,7 @@ import os
 from config import log
 import config as cfg
 from datetime import datetime
+from discord_slash import SlashCommand
 
 from discord.ext import commands
 
@@ -17,12 +18,15 @@ def get_prefix(_bot, message):
 bot = commands.Bot(command_prefix=get_prefix,
                    #description=c.description,
                    case_insensitive=True)
-bot.remove_command('help')
+                   #intents=discord.Intents.all())
+slash = SlashCommand(bot, sync_commands=True, sync_on_cog_reload=True)
 
 cogs = ['cogs.spool',
         'cogs.helpers',
         'cogs.commands',
-        'cogs.owner']
+        'cogs.owner',
+        'cogs.help',
+        'cogs.slash']
 
 for cog in cogs:
     bot.load_extension(cog)

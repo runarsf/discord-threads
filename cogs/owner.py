@@ -16,8 +16,12 @@ class Owner(commands.Cog):
         try:
             self.bot.load_extension(cog)
         except (AttributeError, ImportError, commands.CommandError, commands.ExtensionNotLoaded) as error:
-            await ctx.message.add_reaction('👎')
-            #await ctx.send(f'```py\nCould not load {cog}: {type(error).__name__} - {error}\n```')
+            try:
+                self.bot.load_extension(f'cogs.{cog}')
+            except (AttributeError, ImportError, commands.CommandError, commands.ExtensionNotLoaded) as error:
+                await ctx.message.add_reaction('👎')
+            else:
+                await ctx.message.add_reaction('👌')
         else:
             await ctx.message.add_reaction('👌')
 
@@ -28,8 +32,12 @@ class Owner(commands.Cog):
         try:
             self.bot.unload_extension(cog)
         except (AttributeError, ImportError, commands.CommandError, commands.ExtensionNotLoaded) as error:
-            await ctx.message.add_reaction('👎')
-            #await ctx.send(f'```py\nCould not unload {cog}: {type(error).__name__} - {error}\n```')
+            try:
+                self.bot.unload_extension(f'cogs.{cog}')
+            except (AttributeError, ImportError, commands.CommandError, commands.ExtensionNotLoaded) as error:
+                await ctx.message.add_reaction('👎')
+            else:
+                await ctx.message.add_reaction('👌')
         else:
             await ctx.message.add_reaction('👌')
 

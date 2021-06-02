@@ -4,6 +4,7 @@ from discord.ext import commands
 from datetime import datetime
 from config import log
 
+# FIXME: https://i.runarsf.dev/runar/fUmoyEjE11.png
 
 class Helpers(commands.Cog):
 

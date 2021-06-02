@@ -118,6 +118,7 @@ class Spool(commands.Cog):
                     embed.set_image(url=referenced.attachments[0].url)
                 original_message = await thread_channel.send(embed=embed)
                 await original_message.pin() # Delete this message
+                await original_message.channel.purge(limit=1)
 
             embed = discord.Embed(description=message.content,
                                   colour=getDominantColor(message.author.avatar_url))
